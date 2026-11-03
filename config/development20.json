@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "experiment_name": "edgecode_click_8_1_7_development_20q",
+  "experiment_arms": [
+    "fixed_dense",
+    "ast_hybrid"
+  ],
+  "repository": {
+    "id": "pallets/click",
+    "version": "8.1.7",
+    "path": "repository/click-8.1.7",
+    "include_prefixes": [
+      "src/click/"
+    ],
+    "source_url": "https://github.com/pallets/click/archive/refs/tags/8.1.7.zip",
+    "archive_sha256": "18f30d882d652f6b946613a045b7c55d270d85f3fbb218ab0d24c405cafa6a41"
+  },
+  "questions_path": "data/questions_dev20.json",
+  "chunking": {
+    "fixed": {
+      "max_lines": 80,
+      "overlap_lines": 10
+    },
+    "ast": {
+      "max_lines": 80,
+      "overlap_lines": 10
+    }
+  },
+  "retrieval": {
+    "embedding_model": "BAAI/bge-small-en-v1.5",
+    "embedding_batch_size": 32,
+    "candidate_k": 20,
+    "evaluation_k": [
+      3,
+      5,
+      10
+    ],
+    "hybrid": {
+      "method": "weighted_reciprocal_rank_fusion",
+      "bm25_weight": 0.5,
+      "dense_weight": 0.5,
+      "rrf_k": 60
+    }
+  },
+  "evaluation": {
+    "min_overlap_lines": 1,
+    "min_gold_coverage": 0.25,
+    "splits": [
+      "dev"
+    ]
+  },
+  "expected_question_count": 20
+}
