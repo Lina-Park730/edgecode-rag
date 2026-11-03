@@ -46,6 +46,23 @@ ollama list
 python ask.py --check
 ```
 
+## Dataset Setup
+
+This project uses Click v8.1.7 as the reference codebase for retrieval evaluation.
+
+1. Download the Click v8.1.7 source code from:
+   https://github.com/pallets/click/archive/refs/tags/8.1.7.zip
+
+2. Extract the archive into the `repository/` directory.
+
+3. Ensure the resulting directory structure is:
+
+   repository/
+   └── click-8.1.7/
+       ├── src/
+       ├── tests/
+       └── ...
+
 ## Usage
 
 ```bash
